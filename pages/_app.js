@@ -3,8 +3,12 @@ import Head from "next/head";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../components/theme";
+import { Provider } from 'react-redux'
+import { useStore } from '../store'
 
 export default function MyApp({ Component, pageProps }) {
+  const store = useStore(pageProps.initialReduxState)
+
   return (
     <React.Fragment>
       <Head>
@@ -38,7 +42,9 @@ export default function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </ThemeProvider>
     </React.Fragment>
   );

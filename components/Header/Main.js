@@ -6,10 +6,12 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-import Link from "./Link";
+import Link from "../Link";
 import { useState } from "react";
 import useTheme from "@material-ui/core/styles/useTheme";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import { userHeader } from './Action'
+import { useSelector, useDispatch } from 'react-redux'
 
 const drawerWidth = 220;
 
@@ -50,8 +52,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header({ menuShow, title }) {
-  const [getMenuShow, setMenuShow] = useState(menuShow);
-  const [getTitle, setTitle] = useState(title);
+  const { menuOpen, menuClick } = userHeader()
   const theme = useTheme();
   const classes = useStyles();
 
@@ -63,20 +64,20 @@ function Header({ menuShow, title }) {
             edge="start"
             color="inherit"
             aria-label="menu"
-            onClick={() => setMenuShow(!getMenuShow)}
+            onClick={menuClick}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            {getTitle}
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
         classes={{ paper: classes.drawerPaper }}
         anchor="left"
-        open={getMenuShow}
-        onClose={() => setMenuShow(false)}
+        open={menuOpen}
+        onClose={menuClick}
       >
         <ListItem button component={Link} href="/" underline="none">
           <ListItemText primary="首页" />
@@ -85,9 +86,5 @@ function Header({ menuShow, title }) {
     </div>
   );
 }
-
-Header.getInitialProps = async ({ req }) => {
-  return { menuShow: false, title: "首页" };
-};
 
 export default Header;
