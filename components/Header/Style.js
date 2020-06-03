@@ -35,8 +35,12 @@ export function HeaderStyle() {
             width: drawerWidth,
         },
         nested: {
+            color: 'black',
             paddingLeft: theme.spacing(4),
         },
+        menu: {
+            color: 'black',
+        }
     }));
 
     return { useStyles }

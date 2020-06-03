@@ -18,7 +18,7 @@ function Menu() {
     const list = menu.map(list => {
         return (
             <div key={list.key}>
-                <ListItem button component={Link} href={list.url} underline="none" onClick={() => clickMenuExpend(list.key)}>
+                <ListItem button component={Link} href={list.url} underline="none" onClick={() => clickMenuExpend(list.key)} className={classes.menu}>
                     <ListItemText primary={list.title} />
                     {list.items.length > 0 ? (menuExpend[list.key] ? <ExpandLess /> : <ExpandMore />) : null}
                 </ListItem>
