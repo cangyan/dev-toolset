@@ -28,3 +28,30 @@ export function userHeader() {
 
     return { menuOpen, menuClick, navTitle, setNavTitle }
 }
+
+export function userMenu() {
+    const menu = useSelector((state) => state.NavReducer.menu)
+    const menuExpend = useSelector((state) => state.NavReducer.menuExpend)
+    const dispatch = useDispatch()
+
+    const initMenu = (menuConfig) => {
+        dispatch({
+            type: "MENU_INIT",
+            payload: {
+                menu: menuConfig
+            }
+        })
+    }
+
+    const clickMenuExpend = (key) => {
+        menuExpend[key] = !menuExpend[key]
+        dispatch({
+            type: "MENU_EXPEND_CLICK",
+            payload: {
+                menuExpend: menuExpend
+            }
+        })
+    }
+
+    return { menu, initMenu, menuExpend, clickMenuExpend }
+}

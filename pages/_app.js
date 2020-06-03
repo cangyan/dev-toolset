@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import Head from "next/head";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
