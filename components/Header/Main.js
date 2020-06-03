@@ -7,11 +7,10 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import Link from "../Link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useTheme from "@material-ui/core/styles/useTheme";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { userHeader } from './Action'
-import { useSelector, useDispatch } from 'react-redux'
 
 const drawerWidth = 220;
 
@@ -51,10 +50,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header({ menuShow, title }) {
-  const { menuOpen, menuClick } = userHeader()
-  const theme = useTheme();
+function Header({ title }) {
+  const { menuOpen, menuClick, navTitle, setNavTitle } = userHeader()
   const classes = useStyles();
+
+  useEffect(() => {
+    setNavTitle(title)
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -69,7 +71,7 @@ function Header({ menuShow, title }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            {title}
+            {navTitle}
           </Typography>
         </Toolbar>
       </AppBar>

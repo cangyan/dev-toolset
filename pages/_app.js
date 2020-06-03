@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../components/theme";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
+import ErrorToast from "../components/ErrorToast/Main";
 
 export default function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
@@ -44,6 +45,7 @@ export default function MyApp({ Component, pageProps }) {
         <CssBaseline />
         <Provider store={store}>
           <Component {...pageProps} />
+          <ErrorToast />
         </Provider>
       </ThemeProvider>
     </React.Fragment>
