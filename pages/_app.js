@@ -7,6 +7,7 @@ import theme from "../components/theme";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
 import ErrorToast from "../components/ErrorToast/Main";
+import MainLayout from "../components/MainLayout/Main"
 
 export default function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
@@ -45,7 +46,9 @@ export default function MyApp({ Component, pageProps }) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Provider store={store}>
-          <Component {...pageProps} />
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
           <ErrorToast />
         </Provider>
       </ThemeProvider>

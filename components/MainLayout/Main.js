@@ -9,14 +9,14 @@ import { HeaderStyle } from './Style'
 import Menu from './Menu'
 import { Menu_List } from '../../lib/constants'
 
-function Header({ title }) {
+function MainLayout({ children }) {
   const { menuOpen, menuClick, navTitle, setNavTitle } = userHeader()
   const { useStyles } = HeaderStyle()
   const classes = useStyles();
   const { initMenu } = userMenu()
 
   useEffect(() => {
-    setNavTitle(title)
+    setNavTitle(navTitle)
     initMenu(Menu_List)
   }, []);
 
@@ -38,8 +38,9 @@ function Header({ title }) {
         </Toolbar>
       </AppBar>
       <Menu />
+      <div>{children}</div>
     </div>
   );
 }
 
-export default Header;
+export default MainLayout;

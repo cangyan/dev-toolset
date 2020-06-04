@@ -1,10 +1,17 @@
 import React from "react";
-import Header from "../../components/Header/Main";
+import { useEffect } from "react";
+import { userHeader } from "../../components/MainLayout/Action";
 
-const JsonView = () => (
-    <div>
-        <Header title="JSON视图" />
-    </div>
-);
+export default function JsonView() {
+    const { setNavTitle } = userHeader()
+    useEffect(() => {
+        setNavTitle("JSON视图")
+    }, []);
 
-export default JsonView;
+    return (
+        <div>
+            JSON视图
+        </div>
+    )
+
+};

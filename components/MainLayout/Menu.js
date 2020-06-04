@@ -36,7 +36,6 @@ function Menu() {
                         </List>
                     </Collapse>) : null
                 }
-
             </div >
         )
     })

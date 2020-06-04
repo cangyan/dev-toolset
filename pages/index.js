@@ -1,10 +1,20 @@
 import React from "react";
-import Header from "../components/Header/Main";
+import { useEffect } from "react";
+import { userHeader } from "../components/MainLayout/Action";
 
-const Home = () => (
-  <div>
-    <Header title="首页" />
-  </div>
-);
+export default function Home() {
+  const { setNavTitle } = userHeader()
+  useEffect(() => {
+    setNavTitle("首页")
+  }, []);
 
-export default Home;
+  return (
+    <div>
+      <p>首页</p>
+      <p>首页</p>
+
+      <p>首页</p><p>首页</p><p>首页</p><p>首页</p>
+      <p>首页</p>
+    </div>
+  )
+}
