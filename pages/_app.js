@@ -40,6 +40,9 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#00bbd4" />
+
+        <link rel="stylesheet" href="/json/jsoneditor.min.css" />
+        <script src="/json/jsoneditor.min.js"></script>
       </Head>
 
       <ThemeProvider theme={theme}>
