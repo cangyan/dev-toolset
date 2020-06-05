@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { userHeader } from "../components/MainLayout/Action";
+import Index from "../components/Index/Main";
 
 export default function Home() {
   const { setNavTitle } = userHeader()
@@ -9,8 +10,6 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      test
-    </div>
+    <Index />
   )
 }

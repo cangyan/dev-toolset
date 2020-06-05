@@ -40,6 +40,9 @@ export function HeaderStyle() {
         menu: {
             color: 'black',
         },
+        content: {
+            flexGrow: 1,
+        }
     }));
 
     return { useStyles }

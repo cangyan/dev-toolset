@@ -40,7 +40,7 @@ export default function MainLayout({ children }) {
       </AppBar>
       <Menu />
       <Toolbar />
-      <div>{children}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 }
