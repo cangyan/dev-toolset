@@ -10,12 +10,7 @@ export default function Home() {
 
   return (
     <div>
-      <p>首页</p>
-      <p>首页</p>
-
-      <p>首页</p><p>首页</p><p>首页</p><p>首页</p>
-      <p>首页</p>
+      test
     </div>
   )
-
 }

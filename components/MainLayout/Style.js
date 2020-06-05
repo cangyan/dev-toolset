@@ -5,7 +5,6 @@ const drawerWidth = 220;
 export function HeaderStyle() {
     const useStyles = makeStyles((theme) => ({
         root: {
-            display: "flex",
         },
         title: {
             flexGrow: 1,
@@ -40,7 +39,7 @@ export function HeaderStyle() {
         },
         menu: {
             color: 'black',
-        }
+        },
     }));
 
     return { useStyles }

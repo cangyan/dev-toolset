@@ -3,6 +3,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper"
 import { useState, useEffect } from "react";
 import { userHeader, userMenu } from './Action'
 import { HeaderStyle } from './Style'
@@ -22,7 +23,7 @@ export default function MainLayout({ children }) {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} position="fixed">
         <Toolbar>
           <IconButton
             edge="start"
@@ -38,6 +39,7 @@ export default function MainLayout({ children }) {
         </Toolbar>
       </AppBar>
       <Menu />
+      <Toolbar />
       <div>{children}</div>
     </div>
   );
