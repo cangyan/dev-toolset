@@ -1,7 +1,7 @@
 import Snackbar from '@material-ui/core/Snackbar'
 import { userErrorToast } from './Action'
 
-function ErrorToast() {
+export default function ErrorToast() {
     const { toast, showToast } = userErrorToast()
 
     let mToast = <div></div>
@@ -24,5 +24,3 @@ function ErrorToast() {
 
     return (mToast)
 }
-
-export default ErrorToast;

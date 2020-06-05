@@ -9,7 +9,7 @@ import { HeaderStyle } from './Style'
 import Menu from './Menu'
 import { Menu_List } from '../../lib/constants'
 
-function MainLayout({ children }) {
+export default function MainLayout({ children }) {
   const { menuOpen, menuClick, navTitle, setNavTitle } = userHeader()
   const { useStyles } = HeaderStyle()
   const classes = useStyles();
@@ -42,5 +42,3 @@ function MainLayout({ children }) {
     </div>
   );
 }
-
-export default MainLayout;

@@ -9,7 +9,7 @@ import { HeaderStyle } from './Style'
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-function Menu() {
+export default function Menu() {
     const { menuOpen, menuClick } = userHeader()
     const { useStyles } = HeaderStyle()
     const classes = useStyles();
@@ -51,5 +51,3 @@ function Menu() {
         </Drawer>
     )
 }
-
-export default Menu
