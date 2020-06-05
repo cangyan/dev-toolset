@@ -20,7 +20,7 @@ export function HeaderStyle() {
                 width: "100%",
             },
             textAlign: "center",
-            zIndex: theme.zIndex.drawer + 1,
+            // zIndex: theme.zIndex.drawer + 1,
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -42,6 +42,7 @@ export function HeaderStyle() {
         },
         content: {
             flexGrow: 1,
+            zIndex: theme.zIndex.drawer + 1,
         }
     }));
 

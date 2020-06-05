@@ -42,6 +42,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#00bbd4" />
 
         <link rel="stylesheet" href="/json/jsoneditor.min.css" />
+        <link rel="stylesheet" href="/json/custom.css" />
         <script src="/json/jsoneditor.min.js"></script>
       </Head>
 

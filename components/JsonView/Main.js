@@ -4,13 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        margin: theme.spacing(4),
-        height: "80vh",
-    },
 }));
 
 export default function JsonView() {
@@ -18,14 +11,20 @@ export default function JsonView() {
 
     useEffect(() => {
         const container = document.getElementById("jsoneditor")
-        JSONEditor = new window.JSONEditor(container, {})
-    }, []);
+        let options = {
+            modes: ['text', 'code', 'tree', 'form', 'view'],
+            mode: 'code',
+            ace: ace,
+        };
+
+        new window["JSONEditor"](container, options)
+    }, [])
 
     return (
         <Grid container spacing={3}>
-            <Grid item xs={12}>
-                <Paper id="jsoneditor" className={classes.paper} elevation={3}>
-                </Paper>
+            <Grid item xs={12} className={classes.gird}>
+                <div id="jsoneditor">
+                </div>
             </Grid>
         </Grid>
     )
