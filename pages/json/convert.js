@@ -1,16 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
 import { userHeader } from "../../components/MainLayout/action";
-import JsonView from '../../components/JsonView/main'
+import JSONConvert from '../../components/JsonConvert/main'
 
-export default function View() {
+export default function Convert() {
     const { setNavTitle } = userHeader()
 
     useEffect(() => {
-        setNavTitle("JSON视图")
+        setNavTitle("JSON转换")
     }, []);
 
     return (
-        <JsonView />
+        <JSONConvert />
     )
 };

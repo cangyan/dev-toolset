@@ -4,8 +4,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from '@material-ui/core/Collapse'
 import List from '@material-ui/core/List'
 import Link from "../Link";
-import { userMenu, userHeader } from './Action'
-import { HeaderStyle } from './Style'
+import { userMenu, userHeader } from './action'
+import { HeaderStyle } from './style'
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 

@@ -5,9 +5,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper"
 import { useState, useEffect } from "react";
-import { userHeader, userMenu } from './Action'
-import { HeaderStyle } from './Style'
-import Menu from './Menu'
+import { userHeader, userMenu } from './action'
+import { HeaderStyle } from './style'
+import Menu from './menu'
 import { Menu_List } from '../../lib/constants'
 
 export default function MainLayout({ children }) {

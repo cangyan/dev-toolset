@@ -1,5 +1,5 @@
 import Snackbar from '@material-ui/core/Snackbar'
-import { userErrorToast } from './Action'
+import { userErrorToast } from './action'
 
 export default function ErrorToast() {
     const { toast, showToast } = userErrorToast()

@@ -6,8 +6,8 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../components/theme";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
-import ErrorToast from "../components/ErrorToast/Main";
-import MainLayout from "../components/MainLayout/Main"
+import ErrorToast from "../components/ErrorToast/main";
+import MainLayout from "../components/MainLayout/main"
 
 export default function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
