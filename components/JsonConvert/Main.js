@@ -37,7 +37,7 @@ export default function JsonConvert() {
                         <TextField
                             id="json-input"
                             label="待处理JSON串"
-                            placeholder="Placeholder"
+                            placeholder=""
                             rows={24}
                             rowsMax={24}
                             multiline
