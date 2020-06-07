@@ -5,6 +5,7 @@ import ErrorReducer from './components/ErrorToast/reducer'
 import JsonConvertReducer from './components/JsonConvert/reducer'
 import RandomStringReducer from './components/RandomString/reducer'
 import StringHandleReducer from './components/StringHandle/reducer'
+import DateConvertReducer from './components/DateConvert/reducer'
 
 export default combineReducers({
     NavReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
     JsonConvertReducer,
     RandomStringReducer,
     StringHandleReducer,
+    DateConvertReducer,
 })
