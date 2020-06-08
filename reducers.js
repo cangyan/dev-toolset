@@ -9,6 +9,7 @@ import DateConvertReducer from './components/DateConvert/reducer'
 import IdCardQueryReducer from './components/IdCardQuery/reducer'
 import QrCodeReducer from './components/QrCode/reducer'
 import Base64Reducer from './components/Base64/reducer'
+import GenenateImageReducer from './components/GenerateImage/reducer'
 
 export default combineReducers({
     NavReducer,
@@ -20,4 +21,5 @@ export default combineReducers({
     IdCardQueryReducer,
     QrCodeReducer,
     Base64Reducer,
+    GenenateImageReducer,
 })

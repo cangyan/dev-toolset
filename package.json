@@ -29,6 +29,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
-    "unescape-js": "^1.1.4"
+    "unescape-js": "^1.1.4",
+    "material-ui-color-picker": "^2.1.2"
   }
 }
