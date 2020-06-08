@@ -6,6 +6,7 @@ import JsonConvertReducer from './components/JsonConvert/reducer'
 import RandomStringReducer from './components/RandomString/reducer'
 import StringHandleReducer from './components/StringHandle/reducer'
 import DateConvertReducer from './components/DateConvert/reducer'
+import IdCardQueryReducer from './components/IdCardQuery/reducer'
 
 export default combineReducers({
     NavReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
     RandomStringReducer,
     StringHandleReducer,
     DateConvertReducer,
+    IdCardQueryReducer,
 })

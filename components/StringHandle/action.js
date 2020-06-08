@@ -144,7 +144,7 @@ export default function stringHandle() {
             dispatch({
                 type: "ERROR",
                 payload: {
-                    output: e.toString()
+                    toast: e.toString()
                 }
             })
         }
