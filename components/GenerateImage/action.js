@@ -63,7 +63,43 @@ export default function genenateImage() {
         })
     }
 
-    const genenate = () => {
+    const genenate = (canvasRef, width, height, remark, bgColor, fontColor, displaySize) => {
+        console.log(canvasRef);
+
+        const ctx = canvasRef.current.getContext('2d');
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.save();
+        let fontSize = 5;
+        if (width > height) {
+            fontSize += parseInt((height / 100)) * 10;
+        } else {
+            fontSize += parseInt((width / 100)) * 10;
+        }
+
+        ctx.font = fontSize + "px Arial";
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = fontColor;
+        ctx.textAlign = "center";
+
+        if (remark && displaySize) {
+            ctx.fillText(remark, width / 2, height / 2 - height / 8);
+            ctx.fillText(width + 'x' + height, width / 2, height / 2 + height / 8);
+        } else if (remark) {
+            ctx.fillText(remark, width / 2, height / 2);
+        } else if (displaySize) {
+            ctx.fillText(width + 'x' + height, width / 2, height / 2);
+        }
+
+        ctx.restore();
+
+        // canvasRef.current.canvas.toBlob(function (blob) {
+        //     FileSaver.saveAs(blob, 'custom_' + width + 'x' + height + '.png');
+        // });
+
+
         dispatch({
             type: "GENERATE_IMAGE_RESULT",
             payload: {

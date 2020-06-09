@@ -35,7 +35,7 @@ export default function GenenateImage() {
     const classes = useStyles();
     const { width, height, remark, bgColor, fontColor, displaySize, output,
         setWidth, setHeight, setRemark, setBgColor, setFontColor, setDispalySize, genenate } = genenateImage()
-    const inputRef = useRef()
+    const canvasRef = useRef()
 
     return (
         <Grid container spacing={3}>
@@ -94,22 +94,13 @@ export default function GenenateImage() {
                         />
                     </div>
                     <div className={classes.buttonArea}>
-                        <Button variant="contained" color="primary" onClick={() => genenate()}>生成图片</Button>
+                        <Button variant="contained" color="primary" onClick={() => genenate(canvasRef, width, height, remark, bgColor, fontColor, displaySize)}>生成图片</Button>
                     </div>
                 </Paper>
             </Grid>
             <Grid item xs={6}>
                 <Paper className={classes.paper} elevation={3}>
-                    <TextField
-                        id="result"
-                        label="转换结果"
-                        value={output}
-                        rows={32}
-                        rowsMax={32}
-                        multiline
-                        fullWidth
-                        disabled
-                    />
+                    <canvas ref={canvasRef} width={width} height={height} />
                 </Paper>
             </Grid>
         </Grid>
