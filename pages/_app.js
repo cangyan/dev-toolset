@@ -44,6 +44,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="/json/jsoneditor.min.css" />
         <link rel="stylesheet" href="/json/custom.css" />
         <script src="/json/jsoneditor.min.js"></script>
+        <script src="/_baidu_tongji.js"></script>
       </Head>
 
       <ThemeProvider theme={theme}>
