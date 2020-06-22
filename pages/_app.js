@@ -44,7 +44,9 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="/json/jsoneditor.min.css" />
         <link rel="stylesheet" href="/json/custom.css" />
         <script src="/json/jsoneditor.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41772362-3"></script>
         <script src="/_baidu_tongji.js"></script>
+        <script src="/_google.analytics.js"></script>
       </Head>
 
       <ThemeProvider theme={theme}>
