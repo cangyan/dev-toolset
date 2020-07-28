@@ -25,6 +25,28 @@ export default function stringHandle() {
         })
     }
 
+    const urlEncode = (input) => {
+        let outputString = "";
+        try {
+            outputString = encodeURIComponent(input);
+        } catch (e) {
+            dispatch({
+                type: "ERROR",
+                payload: {
+                    toast: e.toString()
+                }
+            })
+        }
+
+        dispatch({
+            type: "STRING_HANDLE",
+            payload: {
+                input: input,
+                output: outputString
+            }
+        })
+    }
+
     const unicodeToChar = (input) => {
         let unescapeJs = require('unescape-js');
         let outputString = null;
@@ -158,7 +180,7 @@ export default function stringHandle() {
         })
     }
 
-    return { output, urlDecode, unicodeToChar, calcStringLength, calcStringLengthWithChinese, convertURLEncodeStringToBulk, phpUnSerialize, createMD5String }
+    return { output, urlDecode, urlEncode, unicodeToChar, calcStringLength, calcStringLengthWithChinese, convertURLEncodeStringToBulk, phpUnSerialize, createMD5String }
 }
 
 

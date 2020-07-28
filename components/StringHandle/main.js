@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StringHandle() {
     const classes = useStyles();
-    const { output, urlDecode, unicodeToChar, calcStringLength, calcStringLengthWithChinese, convertURLEncodeStringToBulk, phpUnSerialize, createMD5String } = stringHandle()
+    const { output, urlDecode, urlEncode, unicodeToChar, calcStringLength, calcStringLengthWithChinese, convertURLEncodeStringToBulk, phpUnSerialize, createMD5String } = stringHandle()
     const inputRef = useRef()
 
     return (
@@ -47,6 +47,7 @@ export default function StringHandle() {
                     </div>
                     <div className={classes.buttonArea}>
                         <Button variant="contained" color="primary" onClick={() => urlDecode(inputRef.current.value)}>URL Decode</Button>
+                        <Button variant="contained" color="primary" onClick={() => urlEncode(inputRef.current.value)}>URL Encode</Button>
                         <Button variant="contained" color="primary" onClick={() => unicodeToChar(inputRef.current.value)}>Unicode转字符</Button>
                         <Button variant="contained" color="primary" onClick={() => createMD5String(inputRef.current.value)}>MD5</Button>
                         <Button variant="contained" color="primary" onClick={() => calcStringLength(inputRef.current.value)}>字符串长度</Button>
