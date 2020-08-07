@@ -8,7 +8,7 @@ export default function useBase64() {
         dispatch({
             type: "BASE64_ENCODE",
             payload: {
-                output: Base64.encodeURI(input)
+                output: Base64.encode(input)
             }
         })
     }
