@@ -1,4 +1,3 @@
-import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
@@ -6,30 +5,11 @@ import TextField from '@mui/material/TextField'
 import randomString from './action';
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import FromGroup from '@mui/material/FormGroup'
+import Box from '@mui/material/Box';
 import { useRef } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        margin: theme.spacing(2),
-    },
-    inputArea: {
-    },
-    buttonArea: {
-        textAlign: "left",
-        marginTop: theme.spacing(2),
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    }
-}));
-
 export default function XxxXxx() {
-    const classes = useStyles();
     const { output, create } = randomString()
     const selectNumRef = useRef()
     const selectLowerRef = useRef()
@@ -39,8 +19,16 @@ export default function XxxXxx() {
     return (
         <Grid container spacing={3}>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
-                    <div className={classes.inputArea}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
+                    <div>
                         <div className="title">请选择生成参数:</div>
                         <FormGroup>
                             <FormControlLabel
@@ -81,17 +69,25 @@ export default function XxxXxx() {
 
                         </FormGroup>
                     </div>
-                    <div className={classes.buttonArea}>
+                    <Box sx={{ textAlign: "left", mt: 2, '& > *': { m: 1 } }}>
                         <Button variant="contained" color="primary" onClick={() => create(
                             selectNumRef.current.checked,
                             selectUpperRef.current.checked,
                             selectLowerRef.current.checked,
                             lengthRef.current.value)}>生成</Button>
-                    </div>
+                    </Box>
                 </Paper>
             </Grid>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
                     <TextField
                         id="result"
                         label="结果:"

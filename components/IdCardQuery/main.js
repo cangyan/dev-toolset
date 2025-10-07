@@ -1,39 +1,28 @@
-import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import idCardQuery from './action';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import Box from '@mui/material/Box';
 import { useRef } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        margin: theme.spacing(2),
-    },
-    inputArea: {
-    },
-    buttonArea: {
-        textAlign: "left",
-        marginTop: theme.spacing(2),
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    }
-}));
-
 export default function IdCardQuery() {
-    const classes = useStyles();
     const { output, query } = idCardQuery()
     const inputRef = useRef()
 
     return (
         <Grid container spacing={3}>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
-                    <div className={classes.inputArea}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
+                    <div>
                         <TextField
                             id="id-card-input"
                             label="待处理身份证号"
@@ -42,13 +31,21 @@ export default function IdCardQuery() {
                             inputRef={inputRef}
                         />
                     </div>
-                    <div className={classes.buttonArea}>
+                    <Box sx={{ textAlign: "left", mt: 2, '& > *': { m: 1 } }}>
                         <Button variant="contained" color="primary" onClick={() => query(inputRef.current.value)}>真伪查询</Button>
-                    </div>
+                    </Box>
                 </Paper>
             </Grid>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
                     <TextField
                         id="result"
                         label="转换结果"

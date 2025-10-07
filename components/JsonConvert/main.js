@@ -2,38 +2,27 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
+import Box from '@mui/material/Box';
 import { useRef } from 'react';
 import jsonConvert from './action';
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        margin: theme.spacing(2),
-    },
-    inputArea: {
-    },
-    buttonArea: {
-        textAlign: "left",
-        marginTop: theme.spacing(2),
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    }
-}));
-
 export default function JsonConvert() {
-    const classes = useStyles();
     const { input, output, convertArray, convertUrlParams } = jsonConvert()
     const inputRef = useRef()
 
     return (
         <Grid container spacing={3}>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
-                    <div className={classes.inputArea}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
+                    <div>
                         <TextField
                             id="json-input"
                             label="待处理JSON串"
@@ -45,14 +34,22 @@ export default function JsonConvert() {
                             inputRef={inputRef}
                         />
                     </div>
-                    <div className={classes.buttonArea}>
-                        <Button variant="contained" color="primary" onClick={() => convertArray(inputRef.current.value)}>转为数组</Button>
-                        <Button variant="contained" color="primary" onClick={() => convertUrlParams(inputRef.current.value)}>转为URL参数</Button>
-                    </div>
+                    <Box sx={{ textAlign: "left", mt: 2, '& > *': { m: 1 } }}>
+                        <Button variant="contained" color="primary" onClick={() => convertArray(inputRef.current.value)} sx={{ m: 1 }}>转为数组</Button>
+                        <Button variant="contained" color="primary" onClick={() => convertUrlParams(inputRef.current.value)} sx={{ m: 1 }}>转为URL参数</Button>
+                    </Box>
                 </Paper>
             </Grid>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
                     <TextField
                         id="result"
                         label="转换结果"

@@ -1,37 +1,14 @@
-import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import Box from '@mui/material/Box';
 import genenateImage from './action';
 import { useRef } from 'react';
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        margin: theme.spacing(2),
-    },
-    inputArea: {
-        '& > *': {
-            margin: theme.spacing(1),
-            display: "block",
-        },
-    },
-    buttonArea: {
-        textAlign: "center",
-        marginTop: theme.spacing(2),
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    }
-}));
-
 export default function GenenateImage() {
-    const classes = useStyles();
     const { width, height, remark, bgColor, fontColor, displaySize, output,
         setWidth, setHeight, setRemark, setBgColor, setFontColor, setDispalySize, genenate } = genenateImage()
     const canvasRef = useRef()
@@ -39,8 +16,16 @@ export default function GenenateImage() {
     return (
         <Grid container spacing={3}>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
-                    <div className={classes.inputArea} dispay="inline">
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
+                    <Box sx={{ '& > *': { m: 1, display: "block" } }} dispay="inline">
                         <div className="title">请指定参数:</div>
                         <TextField
                             id="input_image_width"
@@ -85,14 +70,22 @@ export default function GenenateImage() {
                             }
                             label="是否显示宽高"
                         />
-                    </div>
-                    <div className={classes.buttonArea}>
+                    </Box>
+                    <Box sx={{ textAlign: "center", mt: 2, '& > *': { m: 1 } }}>
                         <Button variant="contained" color="primary" onClick={() => genenate(canvasRef, width, height, remark, bgColor, fontColor, displaySize)}>生成图片</Button>
-                    </div>
+                    </Box>
                 </Paper>
             </Grid>
             <Grid item xs={6}>
-                <Paper className={classes.paper} elevation={3}>
+                <Paper
+                    elevation={3}
+                    sx={{
+                        p: 2,
+                        textAlign: 'center',
+                        color: 'text.secondary',
+                        m: 2
+                    }}
+                >
                     <canvas ref={canvasRef} width={width} height={height} />
                 </Paper>
             </Grid>

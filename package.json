@@ -10,7 +10,6 @@
   "dependencies": {
     "@mui/material": "^5.16.7",
     "@mui/icons-material": "^5.16.7",
-    "@mui/styles": "^5.16.7",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "ace-builds": "^1.4.11",
