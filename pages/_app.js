@@ -1,16 +1,19 @@
-import React from "react";
-import { useEffect } from "react";
-import Head from "next/head";
-import Script from "next/script";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../components/theme";
-import { Provider } from 'react-redux'
-import { useStore } from '../store'
+import Head from "next/head";
+import Script from "next/script";
+import React from "react";
+import { Provider } from 'react-redux';
 import ErrorToast from "../components/ErrorToast/main";
-import MainLayout from "../components/MainLayout/main"
+import MainLayout from "../components/MainLayout/main";
+import theme from "../components/theme";
+import { useStore } from '../store';
 
-export default function MyApp({ Component, pageProps }) {
+const clientSideEmotionCache = createCache({ key: 'css' });
+
+export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
 
   return (
@@ -52,16 +55,18 @@ export default function MyApp({ Component, pageProps }) {
       <Script src="/_baidu_tongji.js" strategy="afterInteractive" />
       <Script src="/_google.analytics.js" strategy="afterInteractive" />
 
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Provider store={store}>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
-          <ErrorToast />
-        </Provider>
-      </ThemeProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Provider store={store}>
+            <MainLayout>
+              <Component {...pageProps} />
+            </MainLayout>
+            <ErrorToast />
+          </Provider>
+        </ThemeProvider>
+      </CacheProvider>
     </React.Fragment>
   );
 }
