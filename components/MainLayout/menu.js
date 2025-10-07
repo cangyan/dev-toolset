@@ -1,24 +1,30 @@
-import Drawer from "@material-ui/core/Drawer";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Collapse from '@material-ui/core/Collapse'
-import List from '@material-ui/core/List'
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import Drawer from "@mui/material/Drawer";
+import List from '@mui/material/List';
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 import Link from "../Link";
-import { userMenu, userHeader } from './action'
-import { HeaderStyle } from './style'
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import { userHeader, userMenu } from './action';
+
+const drawerWidth = 220;
 
 export default function Menu() {
     const { menuOpen, menuClick } = userHeader()
-    const { useStyles } = HeaderStyle()
-    const classes = useStyles();
     const { menu, menuExpend, clickMenuExpend } = userMenu()
 
     const list = menu.map(list => {
         return (
             <div key={list.key}>
-                <ListItem button component={Link} href={list.url} underline="none" onClick={() => clickMenuExpend(list.key)} className={classes.menu}>
+                <ListItem
+                    button
+                    component={Link}
+                    href={list.url}
+                    underline="none"
+                    onClick={() => clickMenuExpend(list.key)}
+                    sx={{ color: 'black' }}
+                >
                     <ListItemText primary={list.title} />
                     {list.items.length > 0 ? (menuExpend[list.key] ? <ExpandLess /> : <ExpandMore />) : null}
                 </ListItem>
@@ -28,7 +34,17 @@ export default function Menu() {
                         <List>
                             {list.items.map(item => {
                                 return (
-                                    <ListItem key={item.id} button component={Link} href={item.url} underline="none" className={classes.nested}>
+                                    <ListItem
+                                        key={item.id}
+                                        button
+                                        component={Link}
+                                        href={item.url}
+                                        underline="none"
+                                        sx={{
+                                            color: 'black',
+                                            paddingLeft: 4
+                                        }}
+                                    >
                                         <ListItemText primary={item.title} />
                                     </ListItem>
                                 )
@@ -42,7 +58,16 @@ export default function Menu() {
 
     return (
         <Drawer
-            classes={{ paper: classes.drawerPaper }}
+            sx={{
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                    zIndex: (theme) => theme.zIndex.drawer,
+                },
+            }}
+            variant="temporary"
             anchor="left"
             open={menuOpen}
             onClose={menuClick}

@@ -12,6 +12,17 @@ export default function dateConvert() {
             mDate = new Date(Number(timestamp));
         }
 
+        // Check if the date is valid
+        if (isNaN(mDate.getTime())) {
+            dispatch({
+                type: "DATE_CONVERT",
+                payload: {
+                    output: "Invalid date"
+                }
+            })
+            return;
+        }
+
         let outputStr = dateFormat(mDate, format)
 
         dispatch({

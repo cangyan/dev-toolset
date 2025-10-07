@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import Head from "next/head";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
+import Script from "next/script";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 import theme from "../components/theme";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
@@ -40,14 +41,16 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#00bbd4" />
-
-        <link rel="stylesheet" href="/json/jsoneditor.min.css" />
-        <link rel="stylesheet" href="/json/custom.css" />
-        <script src="/json/jsoneditor.min.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41772362-3"></script>
-        <script src="/_baidu_tongji.js"></script>
-        <script src="/_google.analytics.js"></script>
       </Head>
+
+      {/* Scripts moved from Head to Script components */}
+      <Script src="/json/jsoneditor.min.js" strategy="beforeInteractive" />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-41772362-3"
+        strategy="afterInteractive"
+      />
+      <Script src="/_baidu_tongji.js" strategy="afterInteractive" />
+      <Script src="/_google.analytics.js" strategy="afterInteractive" />
 
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

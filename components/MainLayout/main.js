@@ -1,19 +1,17 @@
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper"
-import { useState, useEffect } from "react";
-import { userHeader, userMenu } from './action'
-import { HeaderStyle } from './style'
-import Menu from './menu'
-import { Menu_List } from '../../lib/constants'
+import MenuIcon from "@mui/icons-material/Menu";
+import AppBar from "@mui/material/AppBar";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useEffect } from "react";
+import { Menu_List } from '../../lib/constants';
+import { userHeader, userMenu } from './action';
+import Menu from './menu';
+
+const drawerWidth = 220;
 
 export default function MainLayout({ children }) {
   const { menuOpen, menuClick, navTitle, setNavTitle } = userHeader()
-  const { useStyles } = HeaderStyle()
-  const classes = useStyles();
   const { initMenu } = userMenu()
 
   useEffect(() => {
@@ -22,25 +20,42 @@ export default function MainLayout({ children }) {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.appBar} position="fixed">
+    <div style={{ display: 'flex' }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          textAlign: "center",
+          width: "100%",
+          // zIndex: (theme) => theme.zIndex.drawer + 1,
+        }}
+      >
         <Toolbar>
           <IconButton
             edge="start"
             color="inherit"
             aria-label="menu"
             onClick={menuClick}
+            sx={{
+              marginRight: 2,
+              display: { xs: 'block', sm: 'block' }
+            }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
             {navTitle}
           </Typography>
         </Toolbar>
       </AppBar>
       <Menu />
       <Toolbar />
-      <div className={classes.content}>{children}</div>
+      <div style={{
+        margin: "32px",
+        paddingTop: "32px",
+        flexGrow: 1,
+      }}>
+        {children}
+      </div>
     </div>
   );
 }

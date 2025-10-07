@@ -1,14 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@mui/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import randomString from './action';
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FromGroup from '@material-ui/core/FormGroup'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FromGroup from '@mui/material/FormGroup'
 import { useRef } from 'react';
-import FormGroup from '@material-ui/core/FormGroup';
+import FormGroup from '@mui/material/FormGroup';
 
 const useStyles = makeStyles((theme) => ({
     paper: {

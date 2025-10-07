@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@mui/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({

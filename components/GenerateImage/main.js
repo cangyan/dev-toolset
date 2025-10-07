@@ -1,13 +1,12 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 import genenateImage from './action';
 import { useRef } from 'react';
-import ColorPicker from "material-ui-color-picker";
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -62,25 +61,19 @@ export default function GenenateImage() {
                         />
                         <p />
                     请选择背景颜色:
-                    <ColorPicker
-                            name="input_image_bg_color"
-                            defaultValue={bgColor}
-                            onChange={(color) => {
-                                if (typeof color !== 'undefined') {
-                                    setBgColor(color)
-                                }
-                            }}
-                        />
+                    <input
+                        type="color"
+                        value={bgColor}
+                        onChange={(e) => setBgColor(e.target.value)}
+                        style={{ marginLeft: '10px' }}
+                    />
                     请选择字体颜色:
-                    <ColorPicker
-                            name="input_image_font_color"
-                            defaultValue={fontColor}
-                            onChange={(color) => {
-                                if (typeof color !== 'undefined') {
-                                    setFontColor(color)
-                                }
-                            }}
-                        />
+                    <input
+                        type="color"
+                        value={fontColor}
+                        onChange={(e) => setFontColor(e.target.value)}
+                        style={{ marginLeft: '10px' }}
+                    />
                         <FormControlLabel
                             control={
                                 <Checkbox

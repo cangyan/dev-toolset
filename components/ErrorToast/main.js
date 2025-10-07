@@ -1,4 +1,4 @@
-import Snackbar from '@material-ui/core/Snackbar'
+import Snackbar from '@mui/material/Snackbar'
 import { userErrorToast } from './action'
 
 export default function ErrorToast() {
