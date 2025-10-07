@@ -32,5 +32,6 @@
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "unescape-js": "^1.1.4"
-  }
+  },
+  "packageManager": "pnpm@10.11.0"
 }
